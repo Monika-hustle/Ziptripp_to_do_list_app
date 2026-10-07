@@ -13,7 +13,8 @@ import {
   AlertCircle,
   Loader2,
   Hash,
-  FileText
+  FileText,
+  ArrowLeft
 } from "lucide-react";
 
 interface TodoDetailPageProps {
@@ -114,6 +115,18 @@ export const TodoDetailPage: React.FC<TodoDetailPageProps> = ({ todoId, onBack }
       <Header showBack onBack={onBack} />
 
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-1">
+        {/* Top Navigation Button */}
+        <div className="flex items-center justify-between mb-4">
+          <button
+            type="button"
+            onClick={onBack}
+            className="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold text-slate-700 bg-white hover:bg-slate-100 border border-slate-200 rounded-xl transition shadow-sm cursor-pointer"
+          >
+            <ArrowLeft className="w-4 h-4 text-teal-600" />
+            <span>← Back to Task List</span>
+          </button>
+        </div>
+
         {error && (
           <div className="p-4 bg-rose-50 border border-rose-200 text-rose-700 rounded-xl flex items-center gap-2 mb-6">
             <AlertCircle className="w-5 h-5 shrink-0" />
