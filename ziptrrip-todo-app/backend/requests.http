@@ -1,0 +1,53 @@
+### Variables
+@baseUrl = http://localhost:5000
+
+### 1. Health Check
+GET {{baseUrl}}/health
+Accept: application/json
+
+### 2. Get All Todos (Default list)
+GET {{baseUrl}}/api/todos
+Accept: application/json
+
+### 3. Get All Todos with Filters (Status & Priority)
+GET {{baseUrl}}/api/todos?status=PENDING&priority=HIGH
+Accept: application/json
+
+### 4. Search Todos by Keyword
+GET {{baseUrl}}/api/todos?search=flight
+Accept: application/json
+
+### 5. Create a New Todo
+POST {{baseUrl}}/api/todos
+Content-Type: application/json
+
+{
+  "title": "Corporate Travel Policy Audit",
+  "description": "Review and update enterprise travel expense allowances for Q4",
+  "priority": "HIGH",
+  "status": "PENDING",
+  "category": "Compliance",
+  "due_date": "2026-10-20"
+}
+
+### 6. Get Single Todo by ID (Replace with valid ID)
+GET {{baseUrl}}/api/todos/1
+Accept: application/json
+
+### 7. Update an Existing Todo
+PUT {{baseUrl}}/api/todos/1
+Content-Type: application/json
+
+{
+  "title": "Corporate Travel Policy Audit (Revised)",
+  "priority": "MEDIUM",
+  "status": "IN_PROGRESS"
+}
+
+### 8. Toggle Completion Status
+PATCH {{baseUrl}}/api/todos/1/toggle
+Accept: application/json
+
+### 9. Delete a Todo
+DELETE {{baseUrl}}/api/todos/1
+Accept: application/json
